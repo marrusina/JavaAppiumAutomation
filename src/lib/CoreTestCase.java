@@ -5,6 +5,10 @@ import io.appium.java_client.android.AndroidDriver;
 import junit.framework.TestCase;
 import org.junit.After;
 import org.junit.Before;
+<<<<<<< HEAD
+=======
+import org.openqa.selenium.ScreenOrientation;
+>>>>>>> 956ca0ec2c9a868dac4d2bf5668f5e7ec7df2130
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.URL;
@@ -29,6 +33,10 @@ public class CoreTestCase extends TestCase {
         capabilities.setCapability("app", "/Users/rusina/Desktop/JavaAppiumAutomation/apks/org.wikipedia.apk");
 
         driver = new AndroidDriver(new URL(AppiumUrl), capabilities);
+<<<<<<< HEAD
+=======
+        this.rotateScreenPortrait();
+>>>>>>> 956ca0ec2c9a868dac4d2bf5668f5e7ec7df2130
     }
 
     @Override
@@ -38,4 +46,25 @@ public class CoreTestCase extends TestCase {
         driver.quit();
         super.tearDown();
     }
+<<<<<<< HEAD
+=======
+
+    protected void rotateScreenPortrait()
+    {
+        driver.rotate(ScreenOrientation.PORTRAIT);
+
+    }
+
+    protected void rotateScreenLandscape()
+    {
+        driver.rotate(ScreenOrientation.LANDSCAPE);
+
+    }
+
+    protected void backgroundApp(int seconds)
+    {
+        driver.runAppInBackground(seconds);
+
+    }
+>>>>>>> 956ca0ec2c9a868dac4d2bf5668f5e7ec7df2130
 }
