@@ -12,6 +12,7 @@ public class SearchPageObject extends MainPageObject{
             SEARCH_INPUT = "//*[contains(@text,'Search…')]",
             SEARCH_CANCEL_BUTTON = "org.wikipedia:id/search_close_btn",
             SEARCH_RESULT_BY_SUBSTRING_TPL = "//android.widget.LinearLayout[@text='{SUBSTRING}']",
+            SEARCH_RESULT_BY_TWO_TPL = "//*[@text='{SUBSTRING}']/following-sibling::android.widget.TextView[@text='{DESCRIPTION}']",
 
     SEARCH_RESULT_ELEMENT = "//*[@resource-id='org.wikipedia:id/search_results_list']/*[@resource-id='org.wikipedia:id/page_list_item_container']",
             SEARCH_EMPTY_RESULT_ELEMENT = "//*[@text='No results found']";
@@ -25,6 +26,11 @@ public class SearchPageObject extends MainPageObject{
         return SEARCH_RESULT_BY_SUBSTRING_TPL.replace("{SUBSTRING}", substring);
     }
 
+    private static String getResultSearchElementByTwoElements(String substring, String description)
+    {
+        return SEARCH_RESULT_BY_TWO_TPL.replace("{SUBSTRING}",substring ).replace("{DESCRIPTION}",description);
+
+    }
 
    //templates methods
 
@@ -58,6 +64,12 @@ public class SearchPageObject extends MainPageObject{
     {
         String search_result_xpath = getResultSearchElement(substring);
         this.waitForElementPresent(By.xpath(search_result_xpath), "Cannot find search result" + substring);
+    }
+
+    public void waitForElementByTitleAndDescription(String substring, String description)
+    {
+        String search_result_by_two = getResultSearchElementByTwoElements(substring, description);
+        this.waitForElementPresent(By.xpath(search_result_by_two),"Cannot find by two elements" + substring + description,15);
     }
 
 
