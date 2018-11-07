@@ -9,12 +9,20 @@ public class ArticlePageObject extends MainPageObject{
 
     private static final String
     TITLE = "org.wikipedia:id/view_page_title_text",
+<<<<<<< HEAD
+   // FOOTER_ELEMENT = "//*[@text='View page in browser']",
+=======
     FOOTER_ELEMENT = "//*[@text='View page in browser']",
+>>>>>>> 956ca0ec2c9a868dac4d2bf5668f5e7ec7df2130
     OPTIONS_BUTTON = "//android.widget.ImageView[@content-desc='More options']",
     OPTIONS_ADD_TO_MY_LIST_BUTTON = "//*[@text='Add to reading list']",
     ADD_TO_MY_LIST_OVERLAY = "org.wikipedia:id/onboarding_button",
     MY_LIST_NAME_INPUT = "org.wikipedia:id/text_input",
     MY_LIST_OKEY_BUTTON = "//*[@text='OK']",
+<<<<<<< HEAD
+    MY_LIST_NAME = "//*[@text='Learning programming']",
+=======
+>>>>>>> 956ca0ec2c9a868dac4d2bf5668f5e7ec7df2130
     CLOSE_ARTICLE_BUTTON = "//android.widget.ImageButton[@content-desc='Navigate up']";
 
 
@@ -37,6 +45,16 @@ public class ArticlePageObject extends MainPageObject{
         return title_element.getAttribute("text");
     }
 
+<<<<<<< HEAD
+//    public void swipeToFooter()
+//    {
+//        this.swipeUpToFindElement(
+//                By.xpath(FOOTER_ELEMENT),
+//                "Cannot find the end of article",
+//                20
+//        );
+//    }
+=======
     public void swipeToFooter()
     {
         this.swipeUpToFindElement(
@@ -45,6 +63,7 @@ public class ArticlePageObject extends MainPageObject{
                 20
         );
     }
+>>>>>>> 956ca0ec2c9a868dac4d2bf5668f5e7ec7df2130
 
     public void addArticleToMyList(String name_of_folder)
     {
@@ -91,6 +110,44 @@ public class ArticlePageObject extends MainPageObject{
         );
     }
 
+<<<<<<< HEAD
+    public void addSecondArticleToMyList(String name_of_folder)
+    {
+        this.waitForElementAndClick(
+                By.xpath(OPTIONS_BUTTON),
+                "Cannot find button to open article options",
+                60
+        );
+
+        waitForElementPresent(
+                By.className("android.widget.ListView"),
+                "Cannot open view",
+                60
+        );
+
+        waitForElementAndClick(
+                By.xpath(OPTIONS_ADD_TO_MY_LIST_BUTTON),
+                "Cannot find option to add article to reading list",
+                60
+        );
+
+        waitForElementPresent(
+                By.xpath(MY_LIST_NAME),
+                "Cannot find list Learning programming for saving the second article",
+                15
+        );
+
+        waitForElementAndClick(
+                By.xpath(MY_LIST_NAME),
+                "Cannot find list Learning programming for saving the second article",
+                15
+        );
+
+
+    }
+
+=======
+>>>>>>> 956ca0ec2c9a868dac4d2bf5668f5e7ec7df2130
     public void closeArticle()
     {
         this.waitForElementAndClick(

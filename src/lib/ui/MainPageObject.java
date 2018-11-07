@@ -109,16 +109,40 @@ public class MainPageObject {
         return ((List) elements).size();
     }
 
+<<<<<<< HEAD
+//    public void assertElementNotPresent(By by, String error_message)
+//    {
+//        int amount_of_elements = getAmountOfElements(by);
+//        if (amount_of_elements >0)
+//        {
+//            String default_message = "An element" + by.toString() + "supposed to be not present";
+//            throw new AssertionError(default_message + " " + error_message);
+//        }
+//    }
+
+    public void assertElementPresent(By by, String error_message)
+    {
+        int amount_of_elements = getAmountOfElements(by);
+        if (amount_of_elements == 0)
+=======
     public void assertElementNotPresent(By by, String error_message)
     {
         int amount_of_elements = getAmountOfElements(by);
         if (amount_of_elements >0)
+>>>>>>> 956ca0ec2c9a868dac4d2bf5668f5e7ec7df2130
         {
             String default_message = "An element" + by.toString() + "supposed to be not present";
             throw new AssertionError(default_message + " " + error_message);
         }
     }
 
+<<<<<<< HEAD
+//    public String waitForElementAndGetAttribute(By by, String attribute, String error_message, long timeInSeconds)
+//    {
+//        WebElement element = this.waitForElementPresent(by, error_message,timeInSeconds);
+//        return element.getAttribute(attribute);
+//    }
+=======
     public void assertElementPresent(By by,String error_message) {
         if (driver.findElements(by).size() == 0) {
             String default_message = "An element" + by.toString() + "supposed to be not present";
@@ -131,5 +155,6 @@ public class MainPageObject {
         WebElement element = waitForElementPresent(by, error_message,timeInSeconds);
         return element.getAttribute(attribute);
     }
+>>>>>>> 956ca0ec2c9a868dac4d2bf5668f5e7ec7df2130
 
 }

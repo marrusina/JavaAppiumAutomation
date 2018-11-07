@@ -17,7 +17,15 @@ public class SearchPageObject extends MainPageObject{
     SEARCH_RESULT_BY_DESCRIPTION_TPL = "//*[@resource-id='org.wikipedia:id/page_list_item_description'][@text='{DESCRIPTION}']",
 
         SEARCH_RESULT_ELEMENT = "//*[@resource-id='org.wikipedia:id/search_results_list']/*[@resource-id='org.wikipedia:id/page_list_item_container']",
+<<<<<<< HEAD
+        SEARCH_EMPTY_RESULT_ELEMENT = "//*[@text='No results found']",
+        SEARCH_RESULT_IN_LIST_AFTER_DELETION = "//*[@text='C++']",
+        SEARCH_RESULT_ELEMENT_TWO = "org.wikipedia:id/view_page_title_text";
+
+
+=======
         SEARCH_EMPTY_RESULT_ELEMENT = "//*[@text='No results found']";
+>>>>>>> 956ca0ec2c9a868dac4d2bf5668f5e7ec7df2130
     public SearchPageObject(AppiumDriver driver)
     {
         super(driver);
@@ -52,10 +60,17 @@ public class SearchPageObject extends MainPageObject{
         this.waitForElementPresent(By.id(SEARCH_CANCEL_BUTTON), "Cannot find search cancel button", 5);
     }
 
+<<<<<<< HEAD
+//    public void waitForCancelButtomToDisappear()
+//    {
+//        this.waitForElementNotPresent(By.id(SEARCH_CANCEL_BUTTON), "Search cancel button is still present", 5);
+//    }
+=======
     public void waitForCancelButtomToDisappear()
     {
         this.waitForElementNotPresent(By.id(SEARCH_CANCEL_BUTTON), "Search cancel button is still present", 5);
     }
+>>>>>>> 956ca0ec2c9a868dac4d2bf5668f5e7ec7df2130
 
     public void clickCancelSearch()
     {
@@ -67,11 +82,19 @@ public class SearchPageObject extends MainPageObject{
         this.waitForElementAndSendKeys(By.xpath(SEARCH_INPUT), search_line, "Cannot find any type into search input", 5);
     }
 
+<<<<<<< HEAD
+//    public void waitForSearchResult(String substring)
+//    {
+//        String search_result_xpath = getResultSearchElement(substring);
+//        this.waitForElementPresent(By.xpath(search_result_xpath), "Cannot find search result" + substring);
+//    }
+=======
     public void waitForSearchResult(String substring)
     {
         String search_result_xpath = getResultSearchElement(substring);
         this.waitForElementPresent(By.xpath(search_result_xpath), "Cannot find search result" + substring);
     }
+>>>>>>> 956ca0ec2c9a868dac4d2bf5668f5e7ec7df2130
 
     public void waitForElementByTitleAndDescription(String substring, String description)
     {
@@ -88,7 +111,11 @@ public class SearchPageObject extends MainPageObject{
     public void clickByArticleWithSubstring(String substring)
     {
         String search_result_xpath = getResultSearchElement(substring);
+<<<<<<< HEAD
+        this.waitForElementAndClick(By.xpath(search_result_xpath), "Cannot find search result with substring" + substring, 15);
+=======
         this.waitForElementAndClick(By.xpath(search_result_xpath), "Cannot find search result with substring" + substring, 5);
+>>>>>>> 956ca0ec2c9a868dac4d2bf5668f5e7ec7df2130
     }
 
     public int getAmountOfFoundArticles()
@@ -103,6 +130,34 @@ public class SearchPageObject extends MainPageObject{
 
         }
 
+<<<<<<< HEAD
+    public int getAmountOfFoundArticlesAfterDeletion()
+    {
+        this.waitForElementPresent(
+                By.xpath(SEARCH_RESULT_IN_LIST_AFTER_DELETION),
+                "Cannot find anything by request",
+                5
+        );
+
+        return this.getAmountOfElements(By.xpath(SEARCH_RESULT_IN_LIST_AFTER_DELETION));
+
+    }
+
+//    public void waitForEmptyResultsLabel()
+//    {
+//        this.waitForElementPresent(By.xpath(SEARCH_EMPTY_RESULT_ELEMENT), "Cannot find empty result element", 15);
+//
+//    }
+
+    public void assertthereIsResultOfSearch()
+    {
+        this.assertElementPresent(By.id(SEARCH_RESULT_ELEMENT_TWO), "We supposed not to find any result");
+    }
+
+    public void waitForSearchLineTodisappear()
+    {
+        this.waitForElementNotPresent(By.id(SEARCH_INPUT), "Cannot find search", 5);
+=======
     public void waitForEmptyResultsLabel()
     {
         this.waitForElementPresent(By.xpath(SEARCH_EMPTY_RESULT_ELEMENT), "Cannot find empty result element", 15);
@@ -117,6 +172,7 @@ public class SearchPageObject extends MainPageObject{
     public void assertthereIsResultOfSearch()
     {
         this.assertElementPresent(By.xpath(SEARCH_RESULT_ELEMENT), "We supposed not to find any result");
+>>>>>>> 956ca0ec2c9a868dac4d2bf5668f5e7ec7df2130
     }
 
 }
